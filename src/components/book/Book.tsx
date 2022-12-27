@@ -1,13 +1,13 @@
 import classes from './Book.module.css';
 
-export const Book = () => {
+export const Book = (prop: { title: string, authors: string[], thumbnail: string }) => {
     return (
         <div className={classes["book"]}>
             <div className={classes['book-top']}>
                 <div className={classes.bookCover} style={{
                     width: 128,
-                    height: 193, 
-                    backgroundColor: `grey`
+                    height: 193,
+                    backgroundImage: `url("${prop.thumbnail}")`
                 }}></div>
                 <div className={classes["book-shelf-changer"]}>
                     <select>
@@ -19,8 +19,8 @@ export const Book = () => {
                     </select>
                 </div>
             </div>
-            <div className={classes["book-title"]}>Book title</div>
-            <div className={classes["book-authors"]}>Book authors</div>
+            <div className={classes["book-title"]}>{prop.title}</div>
+            <div className={classes["book-authors"]}>{prop.authors.join(', ')}</div>
         </div>
     )
 }

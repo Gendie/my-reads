@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classes from './Bookshelf.module.css';;
 
-export const Bookshelf = (props: {children: React.ReactElement, title: string}) => {
+export const Bookshelf = (props: {children: ReactNode, title: string}) => {
     return (
         <div className={classes["bookshelf"]}>
             <h2 className={classes["bookshelf-title"]}>{props.title}</h2>
