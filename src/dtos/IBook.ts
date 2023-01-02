@@ -1,10 +1,10 @@
-export type shelf = "currentlyReading" | "wantToRead" | "read";
+export type Shelf = "currentlyReading" | "wantToRead" | "read" | "none";
 
 export interface IBook {
     id: string;
     title: string;
     subtitle: string;
-    shelf: shelf;
+    shelf: Shelf;
     description: string;
     readingModes: {
         image: boolean;

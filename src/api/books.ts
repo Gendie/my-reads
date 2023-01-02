@@ -23,23 +23,23 @@ export const getAll = (): Promise<IBook[]> =>
         .then(res => res.json())
         .then(data => data.books);
 
-// export const update = (book, shelf) =>
-//     fetch(`${api}/books/${book.id}`, {
-//         method: 'PUT',
-//         headers: {
-//             ...headers,
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ shelf })
-//     }).then(res => res.json())
+export const update = (book: IBook) =>
+    fetch(`${api}/books/${book.id}`, {
+        method: 'PUT',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(book)
+    }).then(res => res.json())
 
-// export const search = (query) =>
-//     fetch(`${api}/search`, {
-//         method: 'POST',
-//         headers: {
-//             ...headers,
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ query })
-//     }).then(res => res.json())
-//         .then(data => data.books);
+export const search = (query: string): Promise<IBook[]> =>
+    fetch(`${api}/search`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ query })
+    }).then(res => res.json())
+        .then(data => data.books);
